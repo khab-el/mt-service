@@ -1,0 +1,49 @@
+[flake8]
+
+max-returns=2  # srsly?
+max-line-length=90
+max-complexity=10
+
+tee=True
+count=True
+statistics=True
+
+ignore = D100, #  Missing docstring in public module
+         D101, #  Missing docstring in public class
+         D102, #  Missing docstring in public method
+         D103, #  Missing docstring in public function
+         D104, #  Missing docstring in public package
+         D105, #  Missing docstring in magic method
+         D106, #  Missing docstring in public nested class
+         D107, #  Missing docstring in __init__
+         D200, #  ??? One-line docstring should fit on one line with quotes
+         D205, #  ??? 1 blank line required between summary line and description
+         D400, #  ??? First line should end with a period
+         Q000, #  quotes мы используем двойные ковычки по блэку
+         # docstrings мы не следим за ними и не требуем
+         DAR10,
+         DAR20,
+         DAR40,
+         C8, #  missing trailing comma делает black
+         WPS303, #  запрещенно делать числа с нижний подчеркиваением 1_000_000
+         WPS305, #  Found `f` string - у нас можно f-строки
+         WPS306, #  Found class without a base class: {0} - SomeClass(object)
+         WPS331, #  Found variables that are only used for `return` - так проще дебажить. можно делать логирование
+         WPS348, #  Found a line that starts with a dot - хочется как в Scala
+         WPS529, #  Found implicit `.get()` dict usage
+         WPS110, #  Found wrong variable name: {0} - не дает делать handler в мидваре
+         E266, #  too many leading ‘#’ for block comment
+         E309, #  expected 1 blank line after class declaration - уже не в PEP
+         E501, #  line too long - можно, если с блэком используем
+         E226, # missing whitespace around arithmetic operator
+         W503, #  line break before binary operator - плохо для блэка и пандаса
+         S311, #  нельзя использовать random по причне безопасности.
+
+         W292, # no newline at end of file
+         W504, # line break after binary operator
+         E231, # missing whitespace after ':'
+         E402, # module level import not at top of file
+
+per-file-ignores =
+     # imported but unused
+     __init__.py: F401
